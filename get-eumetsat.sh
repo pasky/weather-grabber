@@ -18,7 +18,7 @@ for ch in IR039 IR108 VIS006 WV062; do
 		echo "wget http://oiswww.eumetsat.org/IPPS/html/latestImages/EUMETSAT_MSG_${ch}E-centralEurope.jpg failed $wgetstatus" >&2
 	fi
 
-	if [ -n "$lastfile" ]; then
+	if [ -n "$lastfile" -a "$lastfile" != "${ts}.jpg" ]; then
 		# Check that we didn't fetch a duplicate
 		lsum=$(md5sum "$dir/$lastfile")
 		nsum=$(md5sum "$dir/${ts}.jpg")
