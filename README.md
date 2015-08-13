@@ -10,6 +10,8 @@ TODO: Also grab global data from
 
 and possibly other locations...
 
+TODO: Extract numeric values from synop HTML tables and aks, milos, sonda plots.
+
 Sample Crontab
 --------------
 
