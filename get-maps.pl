@@ -62,15 +62,21 @@ $min = sprintf('%02d', $min);
 foreach my $r (keys %resources) {
 	my ($url, $per, $flags) = @{$resources{$r}};
 	next unless $per eq $period;
+
 	$url =~ s/YYYY/$year/g;
 	$url =~ s/MM/$mon/g;
 	$url =~ s/DD/$mday/g;
 	$url =~ s/HH/$hour/g;
 	$url =~ s/mm/$min/g;
 	my ($ext) = ($url =~ /.*\.(.*)/);
+
 	my $ts = $year.$mon.$mday.$hour.$min;
 	my $td = get_period_td($per, $year, $mon, $mday);
-	mkdir("maps/$r/$td");  # just to be sure
+
+	# just to be sure
+	mkdir("maps/$r");
+	mkdir("maps/$r/$td");
+
 	system('wget', '-q', '-O', "maps/$r/$td/$ts.$ext", $url);
 	if ($flags !~ /failok/ and $? != 0) {
 		say STDERR "$url: wget returned status $?";
