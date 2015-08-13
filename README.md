@@ -29,6 +29,7 @@ Sample Crontab
 	1 6 * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-aks.sh)
 	14 0,12 * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-wp.sh)
 	38 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-eumetsat.sh)
+	54 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-glofs.sh)
 
 Format Notes
 ------------
