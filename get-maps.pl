@@ -30,6 +30,19 @@ my %resources = (
 	"milos libus" => ["http://portal.chmi.cz/files/portal/docs/meteo/oa/data_milos/milos.png", "10m", ''],
 );
 
+# Get directory name by period; longer periods mean lower granularity
+# of storage.
+sub get_period_td {
+	my ($period, $year, $mon, $mday) = @_;
+	if ($period =~ /m$/) {
+		return $year.$mon.$mday;
+	} elsif ($period =~ /[0-4]h$/) {
+		return $year.$mon;
+	} else {
+		return $year;
+	}
+}
+
 my ($period) = @ARGV;
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime(time-3600);  # always go in 1h lag to ensure all data is already in place
@@ -50,7 +63,6 @@ $min = sprintf('%02d', $min);
 foreach my $r (keys %resources) {
 	my ($url, $per, $flags) = @{$resources{$r}};
 	next unless $per eq $period;
-	mkdir('maps/'.$r);  # just to be sure
 	$url =~ s/YYYY/$year/g;
 	$url =~ s/MM/$mon/g;
 	$url =~ s/DD/$mday/g;
@@ -58,7 +70,9 @@ foreach my $r (keys %resources) {
 	$url =~ s/mm/$min/g;
 	my ($ext) = ($url =~ /.*\.(.*)/);
 	my $ts = $year.$mon.$mday.$hour.$min;
-	system('wget', '-q', '-O', "maps/$r/$ts.$ext", $url);
+	my $td = get_period_td($per, $year, $mon, $mday);
+	mkdir("maps/$r/$td");  # just to be sure
+	system('wget', '-q', '-O', "maps/$r/$td/$ts.$ext", $url);
 	if ($flags !~ /failok/ and $? != 0) {
 		say STDERR "$url: wget returned status $?";
 	}

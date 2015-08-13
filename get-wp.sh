@@ -5,10 +5,11 @@
 # it just twice a day.
 
 ts=$(TZ=UTC date +%Y%m%d%H)
+td=$(TZ=UTC date +%Y)
 
 for ind in 11406 11480 11509 11520 11538 11698 11718; do
-	mkdir -p wp/$ind
-	wget -q -O "wp/$ind/${ts}.png" "http://portal.chmi.cz/files/portal/docs/meteo/oa/data_wp/${ind}.wp.png"
+	mkdir -p wp/$ind/$td
+	wget -q -O "wp/$ind/$td/${ts}.png" "http://portal.chmi.cz/files/portal/docs/meteo/oa/data_wp/${ind}.wp.png"
 	wgetstatus=$?
 	if [ $wgetstatus -ne 0 ]; then
 		echo "wget http://portal.chmi.cz/files/portal/docs/meteo/oa/data_wp/${ind}.wp.png failed $wgetstatus" >&2

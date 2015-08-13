@@ -11,6 +11,8 @@
 # RGB124 is synthesis of previous channels, so not included.
 # b4BT should probably have same information as b4.
 
+td=$(TZ=UTC date +%Y%m)
+
 dirname=$(curl -sf http://portal.chmi.cz/files/portal/docs/meteo/sat/noaa_avhrr/ | tail -n 2 | head -n 1 | cut -d \" -f 2)
 dirname=${dirname%/}
 if [ -z "$dirname" ]; then
@@ -23,8 +25,8 @@ fi
 [ ! -e noaa_avhrr/CE_b4/${dirname}.jpg ] || exit 0
 
 for i in b1 b2 b3 b4 NM; do
-	mkdir -p noaa_avhrr/CE_$i
-	wget -q -O "noaa_avhrr/CE_$i/$dirname.jpg" "http://portal.chmi.cz/files/portal/docs/meteo/sat/noaa_avhrr/$dirname/${dirname}_CE_${i}.jpg"
+	mkdir -p noaa_avhrr/CE_$i/$td
+	wget -q -O "noaa_avhrr/CE_$i/$td/$dirname.jpg" "http://portal.chmi.cz/files/portal/docs/meteo/sat/noaa_avhrr/$dirname/${dirname}_CE_${i}.jpg"
 	# ignore wget errors, many channels are often missing
 	sleep 2
 done
