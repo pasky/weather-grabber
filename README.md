@@ -13,17 +13,17 @@ and possibly other locations...
 Sample Crontab
 --------------
 
-	12,42 * * * *            (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-noaa.sh)
-	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-maps.pl 10m)
-	7,22,37,52 * * * *       (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-maps.pl 15m)
-	9 * * * *                (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-maps.pl 1h)
+	12,42 * * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-noaa.sh)
+	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 10m)
+	7,22,37,52 * * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 15m)
+	9 * * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 1h)
 	# offset >1h by 1h to correct t-1h timestamps in get-maps.pl
-	11 1,4,7,10,13,16,19,22 * * * (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-maps.pl 3h)
-	13 1,7,13,19 * * *       (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-maps.pl 6h)
-	13 1,13 * * *            (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-maps.pl 12h)
-	32 * * * *               (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-stations-synop.sh)
-	1 6 * * *                (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-stations-aks.sh)
-	14 0,12 * * *            (cd /home/pasky/src/meteo/rad-inca-cz; nice -n 19 ./get-wp.sh)
+	11 1,4,7,10,13,16,19,22 * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 3h)
+	13 1,7,13,19 * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 6h)
+	13 1,13 * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 12h)
+	32 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-synop.sh)
+	1 6 * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-aks.sh)
+	14 0,12 * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-wp.sh)
 
 Format Notes
 ------------
