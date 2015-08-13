@@ -1,0 +1,39 @@
+11406  Cheb
+11414  Karlovy Vary
+11423  Primda
+11433  Kopisty
+11438  Tusimice
+11450  Plzen Mikulka
+11457  Churanov
+11464  Milesovka
+11487  Kocelovice
+11502  Usti nad Labem
+11509  Doksany
+11518  Praha Ruzyne
+11519  Praha Karlov
+11520  Praha Libus
+11538  Temelin
+11546  Ceske Budejovice
+11567  Praha Kbely
+11603  Liberec
+11624  Caslav
+11628  Kosetice
+11636  Kostelni Myslova
+11643  Pec pod Snezkou
+11653  Snezka
+11652  Pardubice
+11659  Pribyslav
+11669  Polom
+11679  Usti nad Orlici
+11683  Svratouch
+11692  Namest nad Oslavou
+11693  Dukovany
+11698  Kucharovice
+11710  Luka
+11723  Brno - Turany
+11730  Serak
+11748  Prerov
+11766  Cervena u Libave
+11774  Holesov
+11782  Ostrava - Mosnov
+11787  Lysa hora
