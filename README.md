@@ -4,12 +4,6 @@ Czech Meteo Data Grabber
 A set of scripts to be run from crontab for building personal archive of
 meteorological data.  The data is generally CC-BY-NC-ND by CHMI.
 
-TODO: Also grab global data from
-
-	http://www.ftp.ncep.noaa.gov//data/nccf/com/hourly
-
-and possibly other locations...
-
 TODO: Extract numeric values from synop HTML tables and aks, milos, sonda plots.
 
 Sample Crontab
@@ -51,3 +45,12 @@ Grafy "PTU+vítr":
 "Graf vítr":
   * Rychlost větru (červená čára )
   * Směr větru (modré body )
+
+Additional Resources
+--------------------
+
+  * Very nicely cleaned up historical data for global stations across the world,
+    hourly frequency: ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite
+
+  * Web API for historical METAR/ASOS/AWOS data with hourly or even sub-hourly
+    resolution: http://mesonet.agron.iastate.edu/request/download.phtml
