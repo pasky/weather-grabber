@@ -16,7 +16,8 @@ Sample Crontab
 	12,42 * * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-noaa.sh)
 	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 10m)
 	7,22,37,52 * * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 15m)
-	9 * * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 1h)
+	# cz uroven srazek appears at HH:14
+	19 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 1h)
 	# offset >1h by 1h to correct t-1h timestamps in get-maps.pl
 	11 1,4,7,10,13,16,19,22 * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 3h)
 	13 1,7,13,19 * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 6h)
