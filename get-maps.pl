@@ -11,7 +11,6 @@ my %resources = (
 	"cz srazkradar" => ["http://www.chmi.cz/files/portal/docs/meteo/rad/inca-cz/data/czrad-z_max3d/pacz2gmaps3.z_max3d.YYYYMMDD.HHmm.0.png", "10m", ''],
 	"cz srazkradar fixh" => ["http://www.chmi.cz/files/portal/docs/meteo/rad/inca-cz/data/czrad-z_cappi020/pacz2gmaps3.z_cappi020.YYYYMMDD.HHmm.0.png", "10m", ''],
 	"cz blesky" => ["http://www.chmi.cz/files/portal/docs/meteo/rad/inca-cz/data/celdn/pacz2gmaps3.blesk.YYYYMMDD.HHmm.png", "10m", ''],
-	"cz uroven srazek" => ["http://www.chmi.cz/files/portal/docs/meteo/rad/inca-cz/data/inca-cape/pacz2gmaps3.cp.YYYYMMDD.HHmm.0.png", "1h", 'failok'],
 	"cz synop" => ["http://www.chmi.cz/files/portal/docs/meteo/rad/inca-cz/data/synop/pacz2gmaps9.synop.YYYYMMDD.HHmm.0.png", "1h", ''],
 	"ce srazky" => ["http://www.inca-ce.eu/CE-Portal/data/prec1h/ZAMG.RR_1h.YYYYMMDD.HHmm.1.png", "1h", ''],
 	"ce wind" => ["http://www.inca-ce.eu/CE-Portal/data/wind/INCA.UV.YYYYMMDD.HHmm.1h.png", "1h", ''],
