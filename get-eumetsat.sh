@@ -20,8 +20,8 @@ for ch in IR039 IR108 VIS006 WV062; do
 
 	if [ -n "$lastfile" -a "$lastfile" != "${ts}.jpg" ]; then
 		# Check that we didn't fetch a duplicate
-		lsum=$(md5sum "$dir/$lastfile")
-		nsum=$(md5sum "$dir/${ts}.jpg")
+		lsum=$(md5sum "$dir/$lastfile" | awk '{print$1}')
+		nsum=$(md5sum "$dir/${ts}.jpg" | awk '{print$1}')
 		if [ "$lsum" = "$nsum" ]; then
 			rm "$dir/${ts}.jpg"
 		fi
