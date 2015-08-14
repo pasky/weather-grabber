@@ -11,9 +11,8 @@ Sample Crontab
 
 	12,42 * * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-noaa.sh)
 
-	# use +3h/+2h offset in general to ensure there's time to propagate data;
-	# e.g. "cz srazkradar mer" takes sometimes >1h to sync.
-	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 10m 3)
+	# use +2h offset in general to ensure there's time to propagate data
+	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 10m 2)
 	7,22,37,52 * * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 15m 2)
 	19 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 1h 2)
 	11 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 3h 2)  # every 3h, in fact

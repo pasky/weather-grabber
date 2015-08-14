@@ -17,7 +17,6 @@ my %resources = (
 	"ce gust" => ["http://www.inca-ce.eu/CE-Portal/data/gust/INCA.UVG.YYYYMMDD.HHmm.1h.png", "1h", ''],
 	"ce teplota" => ["http://www.inca-ce.eu/CE-Portal/data/temp/INCA.T2M.YYYYMMDD.HHmm.1h.png", "1h", ''],
 	"mapa eu" => ["http://portal.chmi.cz/files/portal/docs/meteo/om/evropa/T2m_evropa.gif", "3h", ''],
-	"cz srazkradar mer" => ["http://hydro.chmi.cz/hpps/tmp/img/srz/r_1_YYYYMMDDHHmm.png", "10m", ''],
 	"cz srazkradar 1km" => ["http://www.chmi.cz/files/portal/docs/meteo/rad/data_tr_png_1km/pacz23.z_max3d.YYYYMMDD.HHmm.0.png", "15m", ''],
 	"msg ce ir" => ["http://www.chmi.cz/files/portal/docs/meteo/sat/msg_hrit/img-msgce-ir/msgce.ir.YYYYMMDD.HHmm.0.jpg", "15m", ''],
 	"cz teplota" => ["http://portal.chmi.cz/files/portal/docs/poboc/OS/OMK/mapy/T.png", "1h", ''],
