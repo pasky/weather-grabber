@@ -35,7 +35,7 @@ sub get_period_td {
 	my ($period, $year, $mon, $mday) = @_;
 	if ($period =~ /m$/) {
 		return $year.$mon.$mday;
-	} elsif ($period =~ /[0-4]h$/) {
+	} elsif ($period =~ /^[0-4]h$/) {
 		return $year.$mon;
 	} else {
 		return $year;
