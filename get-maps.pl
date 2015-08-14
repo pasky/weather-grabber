@@ -44,7 +44,7 @@ sub get_period_td {
 
 my ($period, $hourofs) = @ARGV;
 
-my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime(time-3600);  # always go in 1h lag to ensure all data is already in place
+my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime(time - $hourofs*3600);
 $year += 1900;
 $mon = sprintf('%02d', $mon+1);
 $mday = sprintf('%02d', $mday);
@@ -61,7 +61,7 @@ $min = sprintf('%02d', $min);
 
 # With periods >1h, verify that we are called at the right hour.
 if ($period =~ /(\d+)h$/ and $1 > 1) {
-	exit() unless ($hour % $1) != $hourofs;
+	exit() unless ($hour % $1) == 0;
 }
 
 foreach my $r (keys %resources) {

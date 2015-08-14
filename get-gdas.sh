@@ -12,10 +12,10 @@
 
 # Use 9 hour lag as the .anl takes really long time to appear, typically
 # 6h44m.
-ts=$(TZ=UTC date +%Y%m%d%H -d '-9 hours')
-td=$(TZ=UTC date +%Y%m -d '-9 hours')
-tA=$(TZ=UTC date +%Y%m%d -d '-9 hours')
-tB=$(printf "%02d" $(($(TZ=UTC date +%H -d '-9 hours') / 6 * 6)) )
+ts=$(TZ=UTC date +%Y%m%d%H -d "-$2 hours")
+td=$(TZ=UTC date +%Y%m -d "-$2 hours")
+tA=$(TZ=UTC date +%Y%m%d -d "-$2 hours")
+tB=$(printf "%02d" $(($(TZ=UTC date +%H -d "-$2 hours") / 6 * 6)) )
 
 for ext in pgrb2: idx:.idx; do
 	mkdir -p gdas/$td

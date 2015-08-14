@@ -11,20 +11,23 @@ Sample Crontab
 
 	12,42 * * * *            (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-noaa.sh)
 
-	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 10m 0)
-	7,22,37,52 * * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 15m 0)
-	19 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 1h 0)
-	11 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 3h 1)  # every 3h, +1hour ofs
-	# long periods are for radiosondes where data delivery is quite delayed
-	13 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 6h 5)  # every 6h, +5hours ofs
-	14 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 12h 5)  # every 12h, +5hours ofs
+	# use +2h offset in general to ensure there's time to propagate data;
+	# e.g. "cz srazkradar mer" takes sometimes >1h to sync.
+	6,16,26,36,46,56 * * * * (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 10m 2)
+	7,22,37,52 * * * *       (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 15m 2)
+	19 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 1h 2)
+	11 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 3h 2)  # every 3h, in fact
+	# long periods are for radiosondes where data delivery is quite delayed, so use +5h offset
+	13 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 6h 5)  # every 6h, in fact
+	14 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 12h 5)  # every 12h, in fact
 
 	32 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-synop.sh)
 	1 * * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-aks.sh 6 0)  # every 6 hours
 	14 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-wp.sh 12 0)  # every 12 hours
 	38 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-eumetsat.sh)
 	54 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-glofs.sh)
-	57 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-gdas.sh 12 9)  # every 12 hours, +9hours ofs
+	# +9hour offset as it typically takes 6h44m to publish the .anl file
+	57 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-gdas.sh 6 9)  # every 6 hours
 
 Note that we call even scripts that should run just once per several hours
 every hour, and we verify whether it's time to run within the script.  This
