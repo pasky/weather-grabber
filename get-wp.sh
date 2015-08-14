@@ -1,8 +1,10 @@
 #!/bin/bash
 # Get vertical wind profile data
-# ./get-wp.sh
+# ./get-wp.sh PERIOD HOUROFS
 # Updated twice an hour, but since it's a 24h graph, we fetch
 # it just twice a day.
+
+[ $(($(TZ=UTC date +%H) % $1)) -eq $2 ] || exit 0
 
 ts=$(TZ=UTC date +%Y%m%d%H)
 td=$(TZ=UTC date +%Y)
