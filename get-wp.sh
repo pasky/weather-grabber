@@ -4,7 +4,7 @@
 # Updated twice an hour, but since it's a 24h graph, we fetch
 # it just twice a day.
 
-[ $(($(TZ=UTC date +%H) % $1)) -eq $2 ] || exit 0
+[ $(($(TZ=UTC date +%_H) % $1)) -eq $2 ] || exit 0
 
 ts=$(TZ=UTC date +%Y%m%d%H)
 td=$(TZ=UTC date +%Y)

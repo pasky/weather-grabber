@@ -3,7 +3,7 @@
 # Usage: get-stations-aks.sh PERIOD HOUROFS
 # This data is available in 48h plot form, so we fetch it just once a day.
 
-[ $(($(TZ=UTC date +%H) % $1)) -eq $2 ] || exit 0
+[ $(($(TZ=UTC date +%_H) % $1)) -eq $2 ] || exit 0
 
 ts=$(TZ=UTC date +%Y%m%d%H)
 td=$(TZ=UTC date +%Y)
