@@ -90,7 +90,7 @@ foreach my $r (keys %resources) {
 		# this is useful when there is no timestamp in filename.
 		# It takes some time to generate file for a given time, so we
 		# of course still round that time to period boundary.
-		my $t = `date -d "\$(curl -qf -I "$url" | grep '^Last-Modified' | cut -d: -f2,3,4)" +%s`;
+		my $t = `date -d "\$(curl -sf -I "$url" | grep '^Last-Modified' | cut -d: -f2,3,4)" +%s`;
 		($r_min, $r_hour, $r_mday, $r_mon, $r_year) = get_split_time($period, $t);
 	} else {
 		($r_min, $r_hour, $r_mday, $r_mon, $r_year) = ($min, $hour, $mday, $mon, $year);
