@@ -21,7 +21,7 @@ Sample Crontab
 	14 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-maps.pl 12h 5)  # every 12h, in fact
 
 	32 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-synop.sh)
-	1 * * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-aks.sh 6 0)  # every 6 hours
+	1 * * * *                (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-stations-aks.sh 24 4)  # every 24 hours, at 4:00 UTC
 	14 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-wp.sh 12 0)  # every 12 hours
 	38 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-eumetsat.sh)
 	54 * * * *               (cd /home/pasky/src/meteo/weather-grabber; nice -n 19 ./get-glofs.sh)
