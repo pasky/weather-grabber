@@ -97,8 +97,8 @@ foreach my $r (keys %resources) {
 		($r_min, $r_hour, $r_mday, $r_mon, $r_year) = ($min, $hour, $mday, $mon, $year);
 	}
 
-	my $ts = $year.$mon.$mday.$hour.$min;
-	my $td = get_period_td($per, $year, $mon, $mday);
+	my $ts = $r_year.$r_mon.$r_mday.$r_hour.$r_min;
+	my $td = get_period_td($per, $r_year, $r_mon, $r_mday);
 
 	# just to be sure
 	mkdir("maps/$r");
