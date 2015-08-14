@@ -8,7 +8,7 @@
 #	https://ready.arl.noaa.gov/gdas1.php
 # We grab the 1-degree grid resolution.
 
-[ $(($(TZ=UTC date +_%H) % $1)) -eq $2 ] || exit 0
+[ $(($(TZ=UTC date +%_H) % $1)) -eq $2 ] || exit 0
 
 # Use 9 hour lag as the .anl takes really long time to appear, typically
 # 6h44m.
