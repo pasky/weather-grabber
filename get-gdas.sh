@@ -3,12 +3,14 @@
 # ./get-gdas.sh PERIOD HOUROFS
 # Updated every six hours.
 #
+# We assume that HOUROFS > PERIOD, unlike in all other scripts.
+#
 # Global Data Acquisition System integrates data from a huge number
 # of world-wide sources to build a grid of various variables:
 #	https://ready.arl.noaa.gov/gdas1.php
 # We grab the 1-degree grid resolution.
 
-[ $(($(TZ=UTC date +%_H) % $1)) -eq $2 ] || exit 0
+[ $(($(TZ=UTC date +%_H) % $1)) -eq $(($2-$1)) ] || exit 0
 
 # Use 9 hour lag as the .anl takes really long time to appear, typically
 # 6h44m.
