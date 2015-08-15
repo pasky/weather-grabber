@@ -11,7 +11,7 @@ cat synop-list.txt | while read ind loc; do
 	mkdir -p synop/$ind/$td
 	# run multiple wgets potentially in parallel as the server is sometimes *real* slow
 	(
-		wget -q -O - "http://pr-asv.chmi.cz/synopy-map/pocasinaasci.php?indstanice=$ind" | gzip >"synop/$ind/$td/${ts}.html.gz"
+		wget --timeout=20 --retry-connrefused -q -O - "http://pr-asv.chmi.cz/synopy-map/pocasinaasci.php?indstanice=$ind" | gzip >"synop/$ind/$td/${ts}.html.gz"
 		wgetstatus=${PIPESTATUS[0]}
 		[ $wgetstatus -eq 0 ] || echo "http://pr-asv.chmi.cz/synopy-map/pocasinaasci.php?indstanice=$ind wget error status $wgetstatus" >&2
 	) &
