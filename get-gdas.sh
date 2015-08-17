@@ -22,10 +22,6 @@ tB=$(printf "%02d" $(($(TZ=UTC date +%H -d "-$2 hours") / 6 * 6)) )
 for ext in pgrb2: idx:.idx; do
 	mkdir -p gdas/$td
 	IFS=: read outext inext <<<"$ext"
-	wget -q -O "gdas/$td/${ts}.$outext" "http://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gdas.${tA}/gdas1.t${tB}z.pgrb2.1p00.anl$inext"
-	wgetstatus=$?
-	if [ $wgetstatus -ne 0 ]; then
-		echo "wget http://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gdas.${tA}/gdas1.t${tB}z.pgrb2.1p00.anl$inext failed $wgetstatus" >&2
-	fi
+	./get "http://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gdas.${tA}/gdas1.t${tB}z.pgrb2.1p00.anl$inext" "gdas/$td/${ts}.$outext"
 	sleep 2
 done

@@ -1,0 +1,30 @@
+#!/bin/sh
+# Acquire an URL, storing it in a given file.
+#
+# This is a wrapper of wget that:
+# (i) produces output only in case of errors (I can't understand why these
+#     tools do not behave UNIX-y), and the output is specific
+# (ii) uses sane retry settings
+# (iii) can compress easily
+#
+# Usage: ./get [-z] URL OUTFILE
+#
+# -z: Compress output (.gz extension is appended to OUTFILE).
+
+compress=
+while getopts z name; do
+	case $name in
+		z) compress=1;;
+		*) echo "get: Unknown option $name" >&2; exit 1;;
+	esac
+done
+shift $(($OPTIND - 1))
+url=$1
+outfile=$2
+
+wget --timeout=330 --tries=3 --retry-connrefused -O "$outfile" -nv "$url" 2>&1 | grep -v URL:  # only errors should remain
+if [ ! -s "$outfile" ]; then
+	rm -f "$outfile"
+elif [ -n "$compress" ]; then
+	gzip "$outfile"
+fi

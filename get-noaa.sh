@@ -26,7 +26,7 @@ fi
 
 for i in b1 b2 b3 b4 NM; do
 	mkdir -p noaa_avhrr/CE_$i/$td
-	wget -q -O "noaa_avhrr/CE_$i/$td/$dirname.jpg" "http://portal.chmi.cz/files/portal/docs/meteo/sat/noaa_avhrr/$dirname/${dirname}_CE_${i}.jpg"
+	./get "http://portal.chmi.cz/files/portal/docs/meteo/sat/noaa_avhrr/$dirname/${dirname}_CE_${i}.jpg" "noaa_avhrr/CE_$i/$td/$dirname.jpg" 2>/dev/null
 	# ignore wget errors, many channels are often missing
 	sleep 2
 done

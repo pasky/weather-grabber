@@ -11,10 +11,6 @@ td=$(TZ=UTC date +%Y)
 
 for ind in 11406 11480 11509 11520 11538 11698 11718; do
 	mkdir -p wp/$ind/$td
-	wget -q -O "wp/$ind/$td/${ts}.png" "http://portal.chmi.cz/files/portal/docs/meteo/oa/data_wp/${ind}.wp.png"
-	wgetstatus=$?
-	if [ $wgetstatus -ne 0 ]; then
-		echo "wget http://portal.chmi.cz/files/portal/docs/meteo/oa/data_wp/${ind}.wp.png failed $wgetstatus" >&2
-	fi
+	./get "http://portal.chmi.cz/files/portal/docs/meteo/oa/data_wp/${ind}.wp.png" "wp/$ind/$td/${ts}.png"
 	sleep 2
 done

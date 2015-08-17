@@ -18,10 +18,6 @@ tB=$(TZ=UTC date +%H)
 
 for c in metars marine; do
 	mkdir -p glofs/$c/$td
-	wget -q -O - "http://www.ftp.ncep.noaa.gov/data/nccf/com/hourly/prod/hourly.${tA}/glofs.t${tB}z.${c}.bufr_d.unblk" | gzip >"glofs/$c/$td/${ts}.bufr_d.unblk.gz"
-	wgetstatus=$?
-	if [ $wgetstatus -ne 0 ]; then
-		echo "wget http://www.ftp.ncep.noaa.gov/data/nccf/com/hourly/prod/hourly.${tA}/glofs.t${tB}z.${c}.bufr_d.unblk failed $wgetstatus" >&2
-	fi
+	./get -z "http://www.ftp.ncep.noaa.gov/data/nccf/com/hourly/prod/hourly.${tA}/glofs.t${tB}z.${c}.bufr_d.unblk" "glofs/$c/$td/${ts}.bufr_d.unblk"
 	sleep 2
 done

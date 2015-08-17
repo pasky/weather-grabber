@@ -104,7 +104,7 @@ foreach my $r (keys %resources) {
 	mkdir("maps/$r");
 	mkdir("maps/$r/$td");
 
-	system('wget', '--timeout=20', '--retry-connrefused', '-q', '-O', "maps/$r/$td/$ts.$ext", $url);
+	system('./get', $url, "maps/$r/$td/$ts.$ext");
 	if ($flags !~ /failok/ and $? != 0) {
 		say STDERR "$url: wget returned status $?";
 	}
