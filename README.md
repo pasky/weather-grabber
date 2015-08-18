@@ -61,3 +61,8 @@ Additional Resources
 
   * Web API for historical METAR/ASOS/AWOS data with hourly or even sub-hourly
     resolution: http://mesonet.agron.iastate.edu/request/download.phtml
+
+  * Tables of selected variables from CHMI professional stations:
+    http://pr-asv.chmi.cz/synopy-tab/
+
+  * Hydrological tables: http://hydro.chmi.cz/hpps/hpps_act_rain.php
