@@ -1,0 +1,3 @@
+#!/bin/sh
+echo ": $(TZ=UTC date) $*" >>log.txt
+exec "$@" >>log.txt 2>&1
